@@ -11,7 +11,12 @@ jdk:
   - oraclejdk8
     
 build:
+  pre_ci_boot:
+    image_name: drydock/u14scaall
+    image_tag: master
+    pull: true
   ci:
+    - cat /etc/drydock/.env
     - java -version
     - echo $SHIPPABLE_SCALA_VERSION
     - echo $PATH
